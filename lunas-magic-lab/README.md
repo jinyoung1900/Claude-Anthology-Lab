@@ -1,6 +1,6 @@
 <h1 align="center">🌙 Luna's Magic Lab</h1>
 
-<p align="center"><b>A VR word-crafting game for kids.</b> Meet Luna, a glowing moon teacher, ask her for words, and mix objects together to discover new ones in English, Spanish and Finnish.</p>
+<p align="center"><b>A VR word-crafting game for kids.</b> Meet Luna, a glowing moon teacher, ask her for words, and mix objects together to discover new ones in English, Spanish, Finnish and Korean.</p>
 
 <p align="center">
   <a href="https://jinyoung1900.github.io/Claude-Anthology-Lab/lunas-magic-lab/"><b>▶ Play it in your browser</b></a> ·
@@ -16,7 +16,7 @@
 ## ✨ What it does
 
 - **Talk or tap to learn words.** Ask Luna for something ("I want an apple!", "Make it rain!") and it appears in 3D while Luna says the word and asks the child to repeat it.
-- **Three languages.** Switch between English, Español and Suomi at any time. Luna's lines, the word chips and the vocabulary all change.
+- **Four languages.** Switch between English, Español, Suomi and 한국어 at any time. Luna's lines, the word chips, the hints and the vocabulary all change. Korean hints use the right particles (와/과, 을/를) for each word, and children can type or say words in Hangul.
 - **Mix and discover.** In VR mode, mystery shapes hide around the room. Reveal them, then pick two to combine them into something new. There are 10 recipes to find.
 - **Teleport around the room.** In Cardboard VR, look at the floor, then press Activate to blink to that spot. No joystick needed, and no motion sickness from smooth walking.
 - **Progress kids can see.** Luna's Memory panel tracks words learned, streaks, recipes found and a level (Sprout → Explorer → Wizard → Star Mage → Moon Master).
@@ -75,11 +75,11 @@
 
 > **About Luna's replies.** When the app runs inside Claude as an artifact, Luna can use Claude to answer free-form questions. Everywhere else, including this GitHub Pages version, she uses built-in replies, so nothing needs to be set up.
 
-**Browser notes:** Voice input works best in Chrome or Edge. If Finnish sounds wrong, install a Finnish text-to-speech voice on the device; until then, Luna reads Finnish words with an English voice.
+**Browser notes:** Voice input works best in Chrome or Edge. If Finnish sounds wrong, install a Finnish text-to-speech voice on the device; until then, Luna reads Finnish words with an English voice. Korean works the same way: Luna uses the device's Korean voice, which most Android phones and Chrome already have.
 
 ## 🗺️ What's next
 
-A **Unity version for Android phones with Google Cardboard** is in progress. It will add English, Finnish and Korean, head-tilt grabbing, a recipe board, and pre-recorded voice lines.
+A **Unity version for Android phones with Google Cardboard** is in progress. It will add head-tilt grabbing, a recipe board, and pre-recorded voice lines.
 
 ## ▶️ Run it locally
 

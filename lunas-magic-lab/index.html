@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Luna’s Magic Lab</title>
-<!-- v11: Cardboard teleport (look at floor + Activate), calmer object motion -->
+<!-- v12: Korean added (English, Español, Suomi, 한국어); Cardboard teleport; calmer object motion -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js"></script>
 <style>
@@ -84,7 +84,7 @@ body.cb #ui>*:not(#cbExit):not(#cbAct){display:none!important}
 <div id="ui">
   <div id="top" class="glass">
     <h1>Luna’s Magic Lab</h1>
-    <div class="seg" id="lang" role="group" aria-label="Target language"><button data-l="en" class="on">English</button><button data-l="es">Español</button><button data-l="fi">Suomi</button></div>
+    <div class="seg" id="lang" role="group" aria-label="Target language"><button data-l="en" class="on">English</button><button data-l="es">Español</button><button data-l="fi">Suomi</button><button data-l="ko">한국어</button></div>
     <div class="badge" id="badge">Words Learned: 0</div>
     <button class="pb" id="orbBtn" aria-pressed="false"><i data-lucide="orbit"></i>Orb mode</button>
     <button class="pb nox" id="vrBtn"><i data-lucide="glasses"></i><span id="vrTxt">Enter VR</span></button>
@@ -123,7 +123,7 @@ function icons(){try{lucide.createIcons()}catch(e){}}
 icons();
 
 /* ---------- Vocabulary & AI state ---------- */
-var PERSONA="Luna is a warm, encouraging glowing moon teaching vocabulary in English, Spanish, or Finnish (e.g., 'kello' for clock, 'omena' for apple, 'aurinko' for sun, 'sade' for rain, 'tähti' for star). Speak in short, simple 1-2 sentence phrases to 6-year-olds. Always be enthusiastic!";
+var PERSONA="Luna is a warm, encouraging glowing moon teaching vocabulary in English, Spanish, Finnish, or Korean (e.g., 'kello' for clock, 'omena' for apple, 'aurinko' for sun, 'sade' for rain, 'tähti' for star). Speak in short, simple 1-2 sentence phrases to 6-year-olds. Always be enthusiastic!";
 var W={
  clock:{en:"clock",es:"reloj",e:"🕒",k:["clock","time","reloj","hora"],
   say:{en:"Tick tock! This is a clock. Can you say “clock”?",es:"¡Tic tac! Esto es un reloj. ¿Puedes decir “reloj”?"}},
@@ -137,8 +137,15 @@ var W={
   say:{en:"Twinkle, twinkle! A golden star! Can you say “star”?",es:"¡Brilla, brilla! ¡Una estrella dorada! ¿Puedes decir “estrella”?"}}
 };
 var KEYS=Object.keys(W);
-var LC={en:"en-US",es:"es-ES",fi:"fi-FI"};
-function L(a,b,c){return S.lang==="es"?b:S.lang==="fi"?c:a}
+var LC={en:"en-US",es:"es-ES",fi:"fi-FI",ko:"ko-KR"};
+function L(a,b,c,d){return S.lang==="es"?b:S.lang==="fi"?c:S.lang==="ko"?(d!=null?d:(KO[a]||a)):a}
+/* Korean: lines looked up by their English text */
+var KO={"Let’s say it again! ": "한 번 더 말해 봐요! ", "Hello, friend! Which word shall we learn today?": "안녕, 친구야! 오늘은 어떤 단어를 배워 볼까요?", "Ooh, fun! Try “clock”, “apple”, “sun”, “rain” or “star”.": "우와, 재밌겠다! “시계”, “사과”, “해”, “비”, “별”을 말해 봐요.", "Here is our lesson planner! Let’s see what’s next.": "여기 우리 수업 계획표예요! 다음엔 뭘 배울까요?", "Hello, friend!": "안녕, 친구야!", "Let’s try a new word!": "새로운 단어를 배워 봐요!", "Lesson time! Here is today’s plan.": "수업 시간이에요! 오늘의 계획이에요.", "English mode! Let’s learn new words!": "한국어 모드! 새로운 단어를 배워 봐요!", "I’m your pocket moon! Grab me and put me anywhere.": "나는 주머니 속 달이에요! 나를 잡아서 어디든 놓아 보세요.", "Teach me a new word!": "새로운 단어 가르쳐 줘!", "Revealed! ": "짠! ", "Mystery shapes are hiding around the room! Look at one and press Activate twice to reveal it. Then pick two shapes to mix them! Look at the floor and press Activate to jump there.": "방 곳곳에 비밀 모양이 숨어 있어요! 하나를 바라보고 선택 버튼을 두 번 누르면 나타나요. 그다음 두 모양을 골라 섞어 봐요! 바닥을 보고 선택 버튼을 누르면 그곳으로 순간이동해요.", "I’m Luna, the moon! Can you say “moon”?": "나는 달님 루나예요! “달” 말해 볼래요?", "You already found every recipe. Amazing!": "벌써 모든 조합을 찾았어요. 대단해요!", "Mystery shapes can’t be mixed yet! Press a shape twice to reveal it first.": "비밀 모양은 아직 섞을 수 없어요! 먼저 모양을 두 번 눌러서 나타나게 해 봐요.", "Sorry, that’s not a good combo!": "아쉽지만 그 조합은 안 돼요!", "Magic mix! ": "마법 섞기 성공! ", "Hi, I’m Luna, the moon! Click me again anytime for hints and ideas!": "안녕, 나는 달님 루나예요! 힌트가 필요하면 언제든 나를 다시 눌러 줘요!", "Pick two shapes one after the other and I’ll mix them!": "모양 두 개를 차례로 고르면 내가 섞어 줄게요!", "Press the button again and I’ll listen to you!": "버튼을 한 번 더 누르면 내가 들어 볼게요!", "I love shining in the night sky! Do you like the moon?": "나는 밤하늘에서 빛나는 게 좋아요! 달을 좋아해요?", "Look at the floor and press the button to jump there!": "바닥을 보고 버튼을 누르면 거기로 순간이동해요!", "You’re doing great! Keep exploring!": "정말 잘하고 있어요! 계속 탐험해 봐요!", "Psst! Look at a mystery shape and press Activate twice to reveal it!": "쉿! 비밀 모양을 보고 선택 버튼을 두 번 누르면 나타나요!", "Luna is listening...": "루나가 듣고 있어요...", "Look at a shape for one second, then press Activate twice to reveal it!": "모양을 1초 동안 바라본 다음 선택 버튼을 두 번 눌러 봐요!", "Activate": "선택", "Exit Cardboard": "카드보드 나가기"};
+/* Korean particle helper: KJ(word,"와","과") picks by whether the last syllable has a final consonant */
+function KJ(w,noFinal,withFinal){var c=w.charCodeAt(w.length-1);return c>=0xAC00&&c<=0xD7A3&&(c-0xAC00)%28?withFinal:noFinal}
+var KPART=["","이","가","을","를","은","는","도","야","아","님","랑","이랑","하고","와","과","에","에서","로","으로","이에요","예요","이야","요","님이","님을","님은"];
+function tokens(text){return (text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").normalize("NFC").match(/[a-zñ\uac00-\ud7a3]+/g))||[]}
+function hasWord(t,w){if(t.indexOf(w)>-1||t.indexOf(w+"s")>-1)return true;if(!/[\uac00-\ud7a3]/.test(w))return false;return t.some(function(x){return x.indexOf(w)===0&&KPART.indexOf(x.slice(w.length))>-1})}
 var FI={
  clock:{w:"kello",k:["kello","kellon","kellot","aika"],say:"Tik tak! Tämä on kello. Osaatko sanoa “kello”?"},
  apple:{w:"omena",k:["omena","omenan","omenat","ruoka","syoda"],say:"Nam, punainen omena! Osaatko sanoa “omena”?"},
@@ -170,15 +177,19 @@ W.book.say={en:"A magic book! Can you say “book”?",es:"¡Un libro mágico! �
 W.cloud.say={en:"A fluffy cloud! Can you say “cloud”?",es:"¡Una nube esponjosa! ¿Puedes decir “nube”?",fi:"Pehmeä pilvi! Osaatko sanoa “pilvi”?"};
 W.fire.say={en:"Hot, hot fire! Can you say “fire”?",es:"¡Fuego caliente! ¿Puedes decir “fuego”?",fi:"Kuuma tuli! Osaatko sanoa “tuli”?"};
 W.moon.say={en:"A glowing moon! Can you say “moon”?",es:"¡Una luna brillante! ¿Puedes decir “luna”?",fi:"Hehkuva kuu! Osaatko sanoa “kuu”?"};
+var KOW={"clock": ["시계", "똑딱똑딱! 이건 시계예요. “시계” 말해 볼래요?", ["시계", "시간", "몇시"]], "apple": ["사과", "냠냠, 빨간 사과예요! “사과” 말해 볼래요?", ["사과", "배고파", "먹고"]], "sun": ["해", "안녕, 반짝이는 해님! “해” 말해 볼래요?", ["해님", "햇님", "태양", "햇빛", "해가", "해를", "해는", "해도"]], "rain": ["비", "첨벙! 비가 와요! “비” 말해 볼래요?", ["비", "빗물"]], "star": ["별", "반짝반짝! 금빛 별이에요! “별” 말해 볼래요?", ["별", "우주"]], "moon": ["달", "빛나는 달이에요! “달” 말해 볼래요?", ["달", "달님"]], "cat": ["고양이", "보들보들 고양이예요! “고양이” 말해 볼래요?", ["고양이", "야옹"]], "water": ["물", "물 한 방울이에요! “물” 말해 볼래요?", ["물"]], "book": ["책", "마법의 책이에요! “책” 말해 볼래요?", ["책"]], "cloud": ["구름", "폭신폭신 구름이에요! “구름” 말해 볼래요?", ["구름"]], "fire": ["불", "앗 뜨거, 불이에요! “불” 말해 볼래요?", ["불", "불꽃"]], "seed": ["씨앗", "작은 씨앗이에요! “씨앗” 말해 볼래요?", []], "tree": ["나무", "큰 나무가 자랐어요! “나무” 말해 볼래요?", []], "rocket": ["로켓", "셋, 둘, 하나… 로켓이에요! “로켓” 말해 볼래요?", []], "rainbow": ["무지개", "무지개예요! “무지개” 말해 볼래요?", []], "magicorb": ["마법 구슬", "마법 구슬이에요! “마법 구슬” 말해 볼래요?", []], "wizardhat": ["마법사 모자", "마법사 모자예요! “마법사 모자” 말해 볼래요?", []], "tiger": ["호랑이", "어흥, 호랑이예요! “호랑이” 말해 볼래요?", []], "campfire": ["모닥불", "따뜻한 모닥불이에요! “모닥불” 말해 볼래요?", []]};
+Object.keys(KOW).forEach(function(k){var x=KOW[k];W[k].ko=x[0];W[k].say.ko=x[1];W[k].k=W[k].k.concat(x[2])});
 var CHIPS={en:["What time is it?","I want an apple!","Make it rain!","Show me the sun","I see a star!","Lesson planner"],
            es:["¿Qué hora es?","¡Quiero una manzana!","¡Haz que llueva!","Muéstrame el sol","¡Veo una estrella!","Mi plan de lección"],
- fi:["Paljonko kello on?","Haluan omenan!","Tee sadetta!","Näytä aurinko","Näen tähden!","Oppituntisuunnitelma"]};
+ fi:["Paljonko kello on?","Haluan omenan!","Tee sadetta!","Näytä aurinko","Näen tähden!","Oppituntisuunnitelma"],
+ ko:["시계 보여 줘!","사과 먹고 싶어!","비가 내렸으면 좋겠어!","해를 보여 줘","별이 보여요!","수업 계획표"]};
 var TITLES=["Sprout","Explorer","Wizard","Star Mage","Moon Master"];
 var S={lang:"en",learnedWords:[],discoveredRecipes:[],streak:0,speaking:false,listening:false,started:false};
 
 function detect(text){
  var t=(text.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").match(/[a-zñ]+/g))||[];
- return KEYS.filter(function(k){return W[k].k.some(function(w){return t.indexOf(w)>-1||t.indexOf(w+"s")>-1})});
+ t=tokens(text);
+ return KEYS.filter(function(k){return W[k].k.some(function(w){return hasWord(t,w)})});
 }
 function reply(text){
  var found=detect(text),es=S.lang==="es",out;
@@ -220,7 +231,7 @@ function getSample(){
 }
 async function llm(text){
  var sm=await getSample();if(!sm)return null;
- var ctrl=new AbortController(),to=setTimeout(function(){ctrl.abort()},12000),nm={en:"English",es:"Spanish",fi:"Finnish"};
+ var ctrl=new AbortController(),to=setTimeout(function(){ctrl.abort()},12000),nm={en:"English",es:"Spanish",fi:"Finnish",ko:"Korean"};
  var prompt=PERSONA+"\nTarget language: "+nm[S.lang]+" (write \"text\" in that language).\nWords already learned: "+(S.learnedWords.map(function(k){return W[k].en}).join(", ")||"none")+".\nRecent chat: "+history.slice(-4).join(" | ")+"\nThe child says: \""+text+"\"\nReply with ONLY JSON, no markdown: {\"text\":\"1-2 short enthusiastic sentences\",\"targetWord\":\"one vocabulary word in "+nm[S.lang]+" or empty\",\"spawnItem\":\"one of clock, apple, sun, rain, star, moon, cat, water, book, cloud, fire, calendar, or empty\"}. Teach a new word when it fits. Use calendar only if asked about schedule or lessons.";
  try{
   var v=await sm.json(prompt,{signal:ctrl.signal,cache:false,modelTier:"quick"});clearTimeout(to);
@@ -228,9 +239,9 @@ async function llm(text){
  }catch(e){clearTimeout(to);if(e&&e.code==="not_granted")sampleP=Promise.resolve(null)}
  return null;
 }
-var PR={en:["Wow!","Great job!","Hooray!","Super!","Yay!"],es:["¡Guau!","¡Muy bien!","¡Hurra!","¡Súper!","¡Yupi!"],fi:["Vau!","Hienoa!","Hurraa!","Super!","Jee!"]},
- IN={en:["Look, it’s “{w}”!","The word is “{w}”!","Wow, “{w}”!"],es:["¡Mira, “{w}”!","¡La palabra es “{w}”!","¡Guau, “{w}”!"],fi:["Katso, “{w}”!","Sana on “{w}”!","Vau, “{w}”!"]},
- AS={en:["Can you say it?","Say it with me!","Can you say it again?"],es:["¿Puedes decirlo?","¡Dilo conmigo!","¿Lo dices otra vez?"],fi:["Osaatko sanoa sen?","Sano se minun kanssani!","Sanotko sen uudestaan?"]},
+var PR={en:["Wow!","Great job!","Hooray!","Super!","Yay!"],es:["¡Guau!","¡Muy bien!","¡Hurra!","¡Súper!","¡Yupi!"],fi:["Vau!","Hienoa!","Hurraa!","Super!","Jee!"],ko:["와!","잘했어요!","만세!","최고예요!","야호!"]},
+ IN={en:["Look, it’s “{w}”!","The word is “{w}”!","Wow, “{w}”!"],es:["¡Mira, “{w}”!","¡La palabra es “{w}”!","¡Guau, “{w}”!"],fi:["Katso, “{w}”!","Sana on “{w}”!","Vau, “{w}”!"],ko:["봐요, “{w}”!","이 단어는 “{w}”!","우와, “{w}”!"]},
+ AS={en:["Can you say it?","Say it with me!","Can you say it again?"],es:["¿Puedes decirlo?","¡Dilo conmigo!","¿Lo dices otra vez?"],fi:["Osaatko sanoa sen?","Sano se minun kanssani!","Sanotko sen uudestaan?"],ko:["말해 볼래요?","같이 말해 봐요!","한 번 더 말해 볼래요?"]},
  SPAWNABLE={clock:1,apple:1,sun:1,rain:1,star:1,moon:1,cat:1,water:1,book:1,cloud:1,fire:1};
 function wordPayload(k,lead){
  var w=W[k][S.lang];
@@ -238,11 +249,12 @@ function wordPayload(k,lead){
 }
 function simulate(text){
  var tk=(text.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").match(/[a-zñ]+/g))||[];
- function has(a){return a.some(function(w){return tk.indexOf(w)>-1})}
- if(has(["calendar","planner","plan","schedule","lesson","calendario","horario","leccion","kalenteri","suunnitelma","aikataulu","oppitunti","oppituntisuunnitelma"]))
+ tk=tokens(text);
+ function has(a){return a.some(function(w){return hasWord(tk,w)})}
+ if(has(["calendar","planner","plan","schedule","lesson","calendario","horario","leccion","kalenteri","suunnitelma","aikataulu","oppitunti","oppituntisuunnitelma","수업","계획표","계획","일정","달력"]))
   return {text:L("Here is our lesson planner! Let’s see what’s next.","¡Aquí está nuestro plan de lecciones!","Tässä on oppituntisuunnitelmamme!"),targetWord:"",spawnItem:"calendar"};
  var f=detect(text);if(f.length)return wordPayload(f[0]);
- if(has(["hello","hi","hey","hola","moi","hei"]))return wordPayload(pickArr(KEYS),L("Hello, friend!","¡Hola, amigo!","Moi, ystävä!"));
+ if(has(["hello","hi","hey","hola","moi","hei","안녕","안녕하세요"]))return wordPayload(pickArr(KEYS),L("Hello, friend!","¡Hola, amigo!","Moi, ystävä!"));
  var un=KEYS.filter(function(k){return S.learnedWords.indexOf(k)<0});
  return wordPayload(un.length?pickArr(un):pickArr(KEYS),L("Let’s try a new word!","¡Probemos una palabra nueva!","Kokeillaan uutta sanaa!"));
 }
@@ -279,7 +291,7 @@ function pickVoice(){
  var fem=list.filter(function(v){return /female|samantha|zira|karen|victoria|moira|tessa|paulina|monica|helena|google/i.test(v.name)});
  return fem[0]||list[0]||null;
 }
-var speakTimer,fbNoted=false,wctx=null;
+var speakTimer,fbNoted=false,koNoted=false,wctx=null;
 var wmix=null;
 var audioPrimed=false;
 function unlockAudio(){
@@ -327,6 +339,7 @@ function speak(text){
  speechSynthesis.cancel();
  var fb;try{fb=voiceFor(text)}catch(e){fb={v:null,eng:S.lang==="fi",sub:S.lang==="fi",t:text}}
  if((fb.sub||fb.web)&&S.lang==="fi"&&!fbNoted){fbNoted=true;addMsg("note","No Finnish voice installed, so Luna reads the Finnish words with an English voice. Install a Finnish voice in your phone’s text-to-speech settings for proper pronunciation.")}
+ if(S.lang==="ko"&&!fb.v&&!koNoted){koNoted=true;addMsg("note","No Korean voice found. Install a Korean text-to-speech voice in your device settings to hear Luna speak Korean.")}
  if(fb.web){webSpeak(text);return}
  var u=new SpeechSynthesisUtterance(fb.t);
  if(fb.v)u.voice=fb.v;u.lang=fb.eng?"en-US":(fb.v?fb.v.lang:LC[S.lang]);u.pitch=1.1;u.rate=.95;
@@ -891,7 +904,7 @@ function spawnGhosts(){
 }
 function clearGhosts(){spawned.forEach(function(o){if(o.ghost){o.dying=true;glows.delete(o.wrap)}})}
 function keyOf(obj){return obj===luna?"luna":obj.userData.o.key}
-function nm(k){return k==="luna"?"Luna":W[k][S.lang]}
+function nm(k){return k==="luna"?(S.lang==="ko"?"루나":"Luna"):W[k][S.lang]}
 function cbReset(){sel.length=0;hlObj=null;gazeK=null;gazeT=0;lunaState=0}
 function cbIntro(){applyPayload({text:L("Mystery shapes are hiding around the room! Look at one and press Activate twice to reveal it. Then pick two shapes to mix them! Look at the floor and press Activate to jump there.","¡Hay formas misteriosas escondidas por la sala! Mira una y pulsa Activar dos veces para revelarla. ¡Luego elige dos formas para mezclarlas! Mira el suelo y pulsa Activar para saltar allí.","Mystisiä muotoja piilottelee huoneessa! Katso yhtä ja paina Aktivoi kahdesti paljastaaksesi sen. Valitse sitten kaksi muotoa sekoittaaksesi ne! Katso lattiaa ja paina Aktivoi hypätäksesi sinne."),targetWord:"",spawnItem:""})}
 function purgeSel(){for(var i=sel.length-1;i>=0;i--){var x=sel[i];if(x!==luna&&(!x.userData.o||x.userData.o.dying||!x.parent))sel.splice(i,1)}}
@@ -907,7 +920,7 @@ function nextHint(){
  if(!un.length)return L("You already found every recipe. Amazing!","¡Ya encontraste todas las recetas! ¡Increíble!","Olet jo löytänyt kaikki reseptit! Uskomatonta!");
  var av=un.filter(function(r){return [r.a,r.b].every(function(k){return BASEKEYS.indexOf(k)>-1||S.discoveredRecipes.indexOf(k)>-1})}),r=pickArr(av.length?av:un);
  function ar(k){return k==="luna"?"":"the "}
- return L("Hint: Try mixing "+ar(r.a)+nm(r.a)+" and "+ar(r.b)+nm(r.b)+"!","Pista: ¡Prueba mezclar "+nm(r.a)+" y "+nm(r.b)+"!","Vihje: Kokeile yhdistää "+nm(r.a)+" ja "+nm(r.b)+"!");
+ return L("Hint: Try mixing "+ar(r.a)+nm(r.a)+" and "+ar(r.b)+nm(r.b)+"!","Pista: ¡Prueba mezclar "+nm(r.a)+" y "+nm(r.b)+"!","Vihje: Kokeile yhdistää "+nm(r.a)+" ja "+nm(r.b)+"!","힌트: "+nm(r.a)+KJ(nm(r.a),"와","과")+" "+nm(r.b)+KJ(nm(r.b),"를","을")+" 섞어 봐요!");
 }
 function findClear(p,r){
  var others=spawned.filter(function(o){return !o.dying}).map(function(o){return {p:o.wrap.position,r:1.15*o.ss}}).concat([{p:luna.position,r:1.4*luna.scale.x}]);
@@ -973,7 +986,7 @@ function updateOrb(t,dt){
 }
 function hintFor(r){
  function ar(k){return k==="luna"?"":"the "}
- return L("Hint: Try mixing "+ar(r.a)+nm(r.a)+" and "+ar(r.b)+nm(r.b)+"!","Pista: ¡Prueba mezclar "+nm(r.a)+" y "+nm(r.b)+"!","Vihje: Kokeile yhdistää "+nm(r.a)+" ja "+nm(r.b)+"!");
+ return L("Hint: Try mixing "+ar(r.a)+nm(r.a)+" and "+ar(r.b)+nm(r.b)+"!","Pista: ¡Prueba mezclar "+nm(r.a)+" y "+nm(r.b)+"!","Vihje: Kokeile yhdistää "+nm(r.a)+" ja "+nm(r.b)+"!","힌트: "+nm(r.a)+KJ(nm(r.a),"와","과")+" "+nm(r.b)+KJ(nm(r.b),"를","을")+" 섞어 봐요!");
 }
 function smartHint(){
  var un=RECIPES.filter(function(r){return S.discoveredRecipes.indexOf(r.out)<0});
@@ -987,13 +1000,14 @@ function smartHint(){
  var ready=un.filter(function(r){return st(r.a)===2&&st(r.b)===2});
  if(ready.length)return hintFor(pickArr(ready));
  var rev=un.filter(function(r){return st(r.a)>=1&&st(r.b)>=1});
- if(rev.length){var r=pickArr(rev),g=st(r.a)===1?r.a:r.b;return L("Reveal the "+nm(g)+" first, then mix it!","¡Revela primero “"+nm(g)+"” y luego mézclala!","Paljasta ensin “"+nm(g)+"” ja sekoita sitten!")}
+ if(rev.length){var r=pickArr(rev),g=st(r.a)===1?r.a:r.b;return L("Reveal the "+nm(g)+" first, then mix it!","¡Revela primero “"+nm(g)+"” y luego mézclala!","Paljasta ensin “"+nm(g)+"” ja sekoita sitten!","먼저 "+nm(g)+KJ(nm(g),"를","을")+" 나타나게 한 다음 섞어 봐요!")}
  return nextHint();
 }
 function whenQuiet(fn){var n=0;(function w(){if(!S.speaking||++n>50){fn();return}setTimeout(w,200)})()}
 function wantsHint(t){
  var tk=(t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").match(/[a-zñ]+/g))||[];
- return ["hint","hints","help","clue","stuck","idea","pista","pistas","ayuda","ayudame","vihje","vihjeet","apua","auta","ideaa"].some(function(w){return tk.indexOf(w)>-1});
+ tk=tokens(t);
+ return ["hint","hints","help","clue","stuck","idea","pista","pistas","ayuda","ayudame","vihje","vihjeet","apua","auta","ideaa","힌트","도와줘","도움","모르겠어"].some(function(w){return hasWord(tk,w)});
 }
 function lunaReset(){lunaState=0;var i=sel.indexOf(luna);if(i>-1)sel.splice(i,1)}
 function lunaCancel(){
@@ -1020,7 +1034,7 @@ function lunaSay(){
   ];
   if(spawned.some(function(o){return o.ghost&&!o.dying}))pool.push(function(){return L("Psst! Look at a mystery shape and press Activate twice to reveal it!","¡Pst! Mira una forma misteriosa y pulsa Activar dos veces para revelarla.","Psst! Katso mystistä muotoa ja paina Aktivoi kahdesti paljastaaksesi sen!")});
   var live=spawned.filter(function(o){return !o.dying&&!o.ghost&&KEYS.indexOf(o.key)>-1});
-  if(live.length)pool.push(function(){var k=pickArr(live).key;return L("Look, the "+W[k].en+"! Can you say “"+W[k].en+"”?","¡Mira, “"+W[k].es+"”! ¿Puedes decirlo?","Katso, “"+W[k].fi+"”! Osaatko sanoa sen?")});
+  if(live.length)pool.push(function(){var k=pickArr(live).key;return L("Look, the "+W[k].en+"! Can you say “"+W[k].en+"”?","¡Mira, “"+W[k].es+"”! ¿Puedes decirlo?","Katso, “"+W[k].fi+"”! Osaatko sanoa sen?","봐요, "+W[k].ko+"! “"+W[k].ko+"” 말해 볼래요?")});
   var tries=0;do{tx=pickArr(pool)()}while(tx===lunaLastText&&++tries<6);
  }
  lunaLastText=tx;
