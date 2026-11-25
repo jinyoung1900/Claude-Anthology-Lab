@@ -1,6 +1,9 @@
 <h1 align="center">🌙 Luna's Magic Lab</h1>
 
-<p align="center"><b>A VR word-crafting game for kids.</b> Meet Luna, a glowing moon teacher, ask her for words, and mix objects together to discover new ones in English, Spanish, Finnish and Korean.</p>
+<p align="center"><b>Kids don't point at labelled objects here. They <i>craft</i> words: look around a 360° room, reveal hidden 3D shapes and mix them into new ones (☀️ sun + ⭐ star = 🚀 rocket), like <i>Little Alchemy</i> in VR.</b><br>
+It runs controller-free on a phone in a Google Cardboard viewer, so a whole class can play with phones and cheap viewers instead of sharing one €360 headset.</p>
+
+<p align="center"><b>English · 한국어 · Suomi</b> &nbsp;(plus Español)</p>
 
 <p align="center">
   <a href="https://jinyoung1900.github.io/Claude-Anthology-Lab/lunas-magic-lab/"><b>▶ Play it in your browser</b></a> ·
@@ -13,30 +16,42 @@
 
 ---
 
-## ✨ What it does
+## 🧩 What makes it different
 
-- **Talk or tap to learn words.** Ask Luna for something ("I want an apple!", "Make it rain!") and it appears in 3D while Luna says the word and asks the child to repeat it.
-- **Four languages.** Switch between English, Español, Suomi and 한국어 at any time. Luna's lines, the word chips, the hints and the vocabulary all change. Korean hints use the right particles (와/과, 을/를) for each word, and children can type or say words in Hangul.
-- **Mix and discover.** In VR mode, mystery shapes hide around the room. Reveal them, then pick two to combine them into something new. There are 10 recipes to find.
-- **Teleport around the room.** In Cardboard VR, look at the floor, then press Activate to blink to that spot. No joystick needed, and no motion sickness from smooth walking.
-- **Progress kids can see.** Luna's Memory panel tracks words learned, streaks, recipes found and a level (Sprout → Explorer → Wizard → Star Mage → Moon Master).
-- **Plays anywhere.** It runs on a desktop browser, on a phone, on a phone in a Google Cardboard viewer, and in WebXR headsets such as Meta Quest.
+Most VR language apps teach vocabulary by **receiving** it. In *Noun Town* you learn the names of objects around a town, with mini-games and spaced repetition. In *Mondly VR* you practise scripted conversations with chatbot characters. Today both are sold for headsets such as Meta Quest.
+
+Luna's Magic Lab teaches vocabulary by **making** it:
+
+| | Typical VR language app | Luna's Magic Lab |
+|---|---|---|
+| **Core loop** | Point at an object or answer a character, hear the word | **Look → Reveal → Teleport → Mix**: find hidden shapes, combine two words into a third |
+| **Why kids keep going** | Lessons, streaks and scores | Curiosity: *what do sun + star make?* 10 secret recipes to discover |
+| **Hardware** | Standalone headset (Meta Quest 3S: €359.99) plus controllers | Any phone + a €10–20 Google Cardboard viewer |
+| **Input** | Headset controllers or hand tracking | **Zero controllers**: gaze to aim, one Activate button, blink teleport |
+| **Languages** | Usually one target language at a time | **English · 한국어 · Suomi** side by side, so kids compare Latin and Hangul scripts and sounds through play |
+
+## 🥽 Why VR? (RIDE framework)
+
+VR is worth it when the experience is **R**are, **I**mpossible, **D**angerous or **E**xpensive in real life. Luna's Magic Lab hits all four:
+
+| | Why it applies |
+|---|---|
+| 🔍 **Rare** | One-on-one, fully immersive spatial play usually means a headset per child or a turn in a VR lab. With Cardboard, every child gets their own 360° room at the same time. |
+| ✨ **Impossible** | You can't mix a sun and a star into a rocket, hold the moon, or watch a seed grow into a tree in seconds. In VR these word transformations happen in space around the child, and searching the room for hidden wireframes makes each word a place you found, not a card you flipped. |
+| 🔥 **Dangerous** | Fire, a campfire, a tiger and a rocket launch can all be handled up close with no risk. The design keeps bodies safe too: kids select by gaze while standing or sitting still, move by **blink teleport** with a short fade instead of smooth walking (which can cause motion sickness), and objects grow in gently instead of bouncing. |
+| 💶 **Expensive** | A standalone headset costs around €360 per child, and a VR lab far more. Luna's Magic Lab needs a phone and a €10–20 Cardboard viewer, so a class set of viewers costs about the same as one headset. |
 
 ## 🎮 How to play
 
-**Desktop or phone**
-1. Open the [live demo](https://jinyoung1900.github.io/Claude-Anthology-Lab/lunas-magic-lab/) and press **Start the magic**.
-2. Tap a word chip, type to Luna, or press the 🎤 button and speak.
-3. Drag to look around. Walk with **WASD** or the arrow keys (or the on-screen pad), and use **Q / E** to fly down or up.
+**Google Cardboard (the main way to play)**
+1. Open the [live demo](https://jinyoung1900.github.io/Claude-Anthology-Lab/lunas-magic-lab/) on your phone, press **Start the magic**, then **Cardboard VR**, and put the phone in the viewer.
+2. **Look** around: mystery shapes made of glowing dots hide around the room.
+3. **Reveal**: look at a shape for about a second until it glows, then press **Activate** twice.
+4. **Teleport**: look at the floor until a ring appears, then press **Activate** to jump there.
+5. **Mix**: look at one revealed shape, press **Activate**, then look at a second shape and press again. Your selection stays while you teleport.
+6. Look at **Luna** and press once for a hint, press again and she listens to you, and press a third time to cancel.
 
-**Cardboard VR** (phone in a viewer)
-1. Press **Cardboard VR** and put the phone in the viewer. Move your head to aim the dot in the middle.
-2. Look at a mystery shape for about a second until it glows, then press **Activate** twice to reveal it.
-3. **Teleport:** look at the floor until a glowing ring appears, then press **Activate** to jump there.
-4. Look at one revealed shape, press Activate, then look at a second shape and press Activate again to **mix** them. Your selection stays while you teleport, so you can walk over to the second shape.
-5. Look at **Luna** and press once for a hint, press again and she listens to you, and press a third time to cancel.
-
-**WebXR headset** (for example Meta Quest Browser): press **Enter VR**. Point and pull the trigger to grab objects, and squeeze to turn Luna into a pocket-sized orb companion.
+**Phone or desktop browser (no viewer)**: tap a word chip, type to Luna, or press 🎤 and speak. Drag to look around, and walk with **WASD**, the arrow keys or the on-screen pad.
 
 ### 🧪 The 10 recipes
 
@@ -53,14 +68,24 @@
 | 🐱 Cat + ☀️ Sun | → | 🐅 Tiger |
 | 🔥 Fire + 🌳 Tree | → | 🏕️ Campfire |
 
-## 💡 Why I built it this way
+## 🌐 Languages
 
-- **Learning by doing.** Instead of memorising a list, the child makes things happen: asking for a word spawns it, and mixing two words creates a third. Every new word comes from an action.
-- **Discovery keeps it going.** Hidden shapes and secret recipes give a reason to keep exploring, and Luna nudges with hints when a child gets stuck.
-- **Low barrier for families.** It's one web page with no install, no account and no API key. A phone and a cheap Cardboard viewer are enough for VR.
-- **Comfortable VR.** Selecting works by gaze, and moving works by blink teleport with a short fade, not smooth walking, which can make people feel sick in VR. Objects grow in gently and float softly instead of bouncing.
-- **A friendly guide.** Luna is a warm character who praises, hints and repeats words, so the child is never alone with a menu.
-- **Course project.** It was built for the *VR Systems and Humans* course at the University of Oulu and follows basic Meta/Oculus VR design guidelines: gaze dwell before selecting, a fixed reticle, teleport instead of smooth locomotion, soft lighting and grounding shadows, and objects spaced out so they never overlap.
+**English · 한국어 · Suomi** are the focus, with Español as a bonus language. Switch at any time: Luna's lines, the word chips, the hints and the vocabulary all change.
+- **Korean** hints use the right particles for each word (별**과** 해**를** 섞어 봐요!), and children can type or say words in Hangul.
+- **Voices** come from the device's text-to-speech. Most Android phones include Korean and English. If a Finnish voice is missing, Luna reads Finnish with an English voice. If a Korean voice is missing, she shows a note saying how to install one.
+
+## 🗺️ MVP status vs. future Unity version
+
+**This build is an interactive MVP made in Claude** (a single-file Claude artifact) to test whether the *Look · Reveal · Teleport · Mix* loop is fun and understandable for kids.
+
+| | ✅ Now: Claude artifact MVP | 🔜 Next: full Unity VR version |
+|---|---|---|
+| **Goal** | Prove the core word-crafting loop quickly | A polished classroom-ready app |
+| **World** | Mystery objects **float on a minimal purple ground plane**: fast to prototype, but abstract | Everyday 3D objects **grounded naturally inside rich themed rooms**, such as a bedroom, a kitchen or an observatory, so each word is anchored in real-world spatial memory |
+| **Interaction** | Gaze + one Activate button, blink teleport | Look at an object and tilt your head to grab, move your head to carry, tilt again to drop; teleport by looking at the ground |
+| **Guidance** | Luna gives spoken hints | Plus a recipe board that shows every combination |
+| **Voice** | Device text-to-speech | Luna's voice and word audio prepared in advance |
+| **Platform** | Any phone browser + Cardboard, no install | Android app + Google Cardboard |
 
 ## 🛠️ Tech
 
@@ -68,22 +93,18 @@
 |---|---|
 | App | One self-contained `index.html` with no build step and no backend |
 | 3D | [Three.js](https://threejs.org/) r128. Every object (Luna, clock, rocket, tiger…) is built from code, with no 3D model files |
-| Icons | [Lucide](https://lucide.dev/) |
-| Voice | Web Speech API: speech synthesis for Luna's voice, speech recognition for the child's answers |
-| VR | WebXR for headsets. For Cardboard, split-screen stereo rendering, `DeviceOrientation` head tracking, gaze selection and floor-gaze teleport |
+| Cardboard VR | Split-screen stereo rendering, `DeviceOrientation` head tracking, gaze-dwell selection and floor-gaze teleport |
+| Voice | Web Speech API: speech synthesis for Luna, speech recognition for the child's answers |
+| Also | Enter VR works in WebXR headset browsers. Lucide icons |
 | Built with | Claude, as a Claude artifact, through many rounds of prompting, testing and fixing |
 
-> **About Luna's replies.** When the app runs inside Claude as an artifact, Luna can use Claude to answer free-form questions. Everywhere else, including this GitHub Pages version, she uses built-in replies, so nothing needs to be set up.
+> **About Luna's replies.** When the app runs inside Claude as an artifact, Luna can use Claude to answer free-form questions. Everywhere else, including this GitHub Pages version, she uses built-in replies, so there is no AI service and nothing to set up.
 
-**Browser notes:** Voice input works best in Chrome or Edge. If Finnish sounds wrong, install a Finnish text-to-speech voice on the device; until then, Luna reads Finnish words with an English voice. Korean works the same way: Luna uses the device's Korean voice, which most Android phones and Chrome already have.
+## 🎓 Context
 
-## 🗺️ What's next
+Built for the *VR Systems and Humans* course at the University of Oulu, following basic Meta/Oculus VR design guidelines: gaze dwell before selecting, a fixed reticle, teleport instead of smooth locomotion, soft lighting and grounding shadows, and objects spaced so they never overlap.
 
-A **Unity version for Android phones with Google Cardboard** is in progress. It will add head-tilt grabbing, a recipe board, and pre-recorded voice lines.
-
-## ▶️ Run it locally
-
-Download `index.html` and open it in a browser. It loads Three.js and Lucide from a CDN, so you need an internet connection.
+**Run it locally:** download `index.html` and open it in a browser. It loads Three.js and Lucide from a CDN, so you need an internet connection.
 
 ---
 

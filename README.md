@@ -11,7 +11,7 @@
 
 | | Project | What it is | Links |
 |---|---|---|---|
-| 🌙 | **[Luna's Magic Lab](lunas-magic-lab/)** | A VR word-crafting game for kids. Meet Luna, a glowing moon, ask for words, and mix objects to discover new ones in English, Spanish, Finnish and Korean. Works in the browser, on a phone in a Cardboard viewer, and in WebXR headsets. | [▶ Play](https://jinyoung1900.github.io/Claude-Anthology-Lab/lunas-magic-lab/) · [Code & video](lunas-magic-lab/) |
+| 🌙 | **[Luna's Magic Lab](lunas-magic-lab/)** | A VR word-crafting game for kids. Meet Luna, a glowing moon, ask for words, and mix objects to discover new ones by crafting them: look, reveal hidden shapes, teleport and mix (sun + star = rocket). English · 한국어 · Suomi (plus Español). Controller-free on a phone in a Google Cardboard viewer. | [▶ Play](https://jinyoung1900.github.io/Claude-Anthology-Lab/lunas-magic-lab/) · [Code & video](lunas-magic-lab/) |
 
 *More pieces coming.*
 
