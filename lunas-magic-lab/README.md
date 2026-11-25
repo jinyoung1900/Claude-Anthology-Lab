@@ -79,7 +79,7 @@
 
 ## 🗺️ What's next
 
-A **Unity version for Meta Quest** is in progress. It will add English, Finnish and Korean, head-tilt grabbing, a recipe board, and pre-recorded voice lines.
+A **Unity version for Android phones with Google Cardboard** is in progress. It will add English, Finnish and Korean, head-tilt grabbing, a recipe board, and pre-recorded voice lines.
 
 ## ▶️ Run it locally
 
