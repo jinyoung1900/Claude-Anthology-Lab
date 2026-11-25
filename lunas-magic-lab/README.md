@@ -87,6 +87,24 @@ VR is worth it when the experience is **R**are, **I**mpossible, **D**angerous or
 | **Voice** | Device text-to-speech | Luna's voice and word audio prepared in advance |
 | **Platform** | Any phone browser + Cardboard, no install | Android app + Google Cardboard |
 
+### 🎬 Concept preview: how the Unity version could play
+
+> ⚠️ **This is a concept mock-up, not Unity footage.** It was made as a 3D web scene to plan the final build, and the video is labelled as a mock-up throughout.
+
+<p align="center">
+  <a href="media/concept-unity-preview.mp4"><img src="media/concept-preview.gif" alt="Concept mock-up of the Unity version in Cardboard view: looking at a glass of water in a kitchen, tilting the head to grab it, carrying it to the stove and dropping it on the fire to make a cloud" width="640"></a><br>
+  <a href="media/concept-unity-preview.mp4"><b>▶ Watch the full concept video (35 s)</b></a>
+</p>
+
+The concept shows one themed room, a kitchen, played in Google Cardboard:
+1. **Grounded objects:** a glass of water on the counter, fire on the stove, apples in a bowl, a cat on the rug, and Luna by the window.
+2. **Teleport:** look at the floor and press to blink across the room.
+3. **Look:** the glass glows and its name appears in three languages (💧 water · 물 · vesi).
+4. **Grab and carry:** tilt your head to pick the glass up, then move your head to carry it.
+5. **Mix:** tilt again to drop it on the fire, and water + fire = ☁️ cloud (구름 · pilvi).
+6. **Recipe board:** the new recipe is ticked off on the wall.
+7. **Speak:** Luna cheers and asks the child to say the new word.
+
 ## 🛠️ Tech
 
 | Part | How |
