@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Idle Raindrop</title>
+<link rel="stylesheet" href="font.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="scene" aria-label="Your cloud and the valley below it"></canvas>
+
+<header id="hud">
+  <button id="gear" class="iconbtn" aria-label="Settings"><i data-ico="gear" data-px="2"></i></button>
+  <div id="count"><b id="drops">0</b><span id="rate">0 drops/s</span></div>
+  <div id="stage"><div class="stageline"><span id="stName"></span><span id="stNext"></span></div><div class="bar"><i id="stBar"></i></div></div>
+</header>
+
+<div id="buffs" aria-live="polite"></div>
+<button id="bolt" aria-label="Release thunder" hidden><b id="boltFill"></b><i data-ico="bolt" data-px="3"></i></button>
+<div id="hint"></div>
+<div id="offer" hidden></div>
+<div id="toasts" aria-live="polite"></div>
+
+<section id="sheet">
+  <button id="fold" aria-label="Close menu"><i data-ico="down" data-px="2"></i></button>
+  <div id="panels">
+    <div class="panel" data-p="clouds"><div class="phead"><h2>Clouds</h2><div class="seg" id="buyMode"><button data-m="1">1</button><button data-m="10">10</button><button data-m="max">Max</button></div></div><div class="list" id="gens"></div></div>
+    <div class="panel" data-p="lore"><div class="phead"><h2>Weather lore</h2><span class="sub" id="upCount"></span></div><div class="list" id="ups"></div></div>
+    <div class="panel" data-p="vapor"><div class="phead"><h2>Evaporate</h2></div><div class="list" id="vapor"></div></div>
+    <div class="panel" data-p="journal"><div class="phead"><h2>Journal</h2></div><div class="list" id="journal"></div></div>
+  </div>
+  <nav id="tabs">
+    <button data-t="clouds"><i data-ico="cloud" data-px="2"></i><span>Clouds</span></button>
+    <button data-t="lore"><i data-ico="wind" data-px="2"></i><span>Lore</span></button>
+    <button data-t="vapor"><i data-ico="steam" data-px="2"></i><span>Evaporate</span></button>
+    <button data-t="journal"><i data-ico="book" data-px="2"></i><span>Journal</span></button>
+  </nav>
+</section>
+
+<div id="modal" hidden><div class="card" role="dialog" aria-modal="true"></div></div>
+
+<script src="font.js"></script>
+<script src="icons.js"></script>
+<script src="lore.js"></script>
+<script src="core.js"></script>
+<script src="scene.js"></script>
+<script src="audio.js"></script>
+<script src="ui.js"></script>
+</body>
+</html>

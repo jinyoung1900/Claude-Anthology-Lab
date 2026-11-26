@@ -1,0 +1,5 @@
+<resources>
+    <!-- Google's public test ids. Leave these as they are. -->
+    <string name="admob_app_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="admob_rewarded_id" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
+</resources>

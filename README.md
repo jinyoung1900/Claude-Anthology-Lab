@@ -12,17 +12,18 @@
 | | Project | What it is | Links |
 |---|---|---|---|
 | 🌙 | **[Luna's Magic Lab](lunas-magic-lab/)** | A VR word-crafting puzzle for kids: look around, reveal hidden shapes, teleport, and mix them into new words (sun + star = rocket). English · 한국어 · Suomi (plus Español). Controller-free on a phone in a Google Cardboard viewer. | [▶ Play](https://jinyoung1900.github.io/Claude-Anthology-Lab/lunas-magic-lab/) · [Code & video](lunas-magic-lab/) |
+| 🌧️ | **[Idle Raindrop](idle-raindrop/)** | A calm pixel-art idle game for Android. You are a small cloud: rain on a dead valley until grass, lakes and a village come back, then evaporate and drift to the next valley. All art drawn in code, real cloud types and weather lore. | [▶ Play](https://jinyoung1900.github.io/Claude-Anthology-Lab/idle-raindrop/) · [APK](https://github.com/jinyoung1900/Claude-Anthology-Lab/releases/tag/idle-raindrop-v1.0) · [Code](idle-raindrop/) |
 
 *More pieces coming.*
 
 ## 🛠️ How these are made
 
-Every project starts as a conversation with Claude and is built as a Claude **artifact**: a self-contained web app in a single HTML file. When a prototype is worth keeping, I export it here, add a write-up and a short demo video, and publish it with GitHub Pages so anyone can try it.
+Every project starts as a conversation with Claude and is built as a Claude **artifact**: a self-contained web app in a single HTML file. When a prototype is worth keeping, I export it here, add a write-up and a short demo video, and publish it with GitHub Pages so anyone can try it. Bigger projects, like Idle Raindrop (a full Android app), are built with **Claude Code** and live here as complete source.
 
 Each project has its own folder with:
 - `index.html`, the app itself (open it in a browser, no build step)
 - `README.md`, covering what it is, how to play, why it's built this way, and the tech
-- `media/`, with the demo video and preview
+- `media/`, with the demo video or screenshots
 
 ## 🔗 Sister lab
 

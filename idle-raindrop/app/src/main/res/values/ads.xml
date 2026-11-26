@@ -1,0 +1,6 @@
+<resources>
+    <!-- These are Google's public TEST ids. Replace both with your own AdMob ids before a Play release.
+         Debug builds always use test ids (see src/debug), so you never click your own live ads by accident. -->
+    <string name="admob_app_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="admob_rewarded_id" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
+</resources>
