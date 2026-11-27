@@ -17,7 +17,6 @@ import { localTo } from './anchors';
 import type { DogAnim } from './Dog3D';
 import { newPose, stepPose } from './dogPose';
 import { buildSculptDog, sculptKey } from './sculpt/buildDog';
-import { getToonRamp, makeOutlineMaterial } from './toon';
 import { CostumeExtras, useClothMaterial, useCostumes } from './DogCostume';
 
 function useFaceTexture(url: string) {
@@ -37,13 +36,8 @@ function useFaceTexture(url: string) {
   return tex;
 }
 
-export type SculptLook = 'sculpt' | 'toon' | 'plush';
-
-/**
- * Dog material with the face projection, triplanar fur and accent markings.
- *  sculpt: soft Lambert · toon: cel-shaded ramp · plush: felt fuzz, sheen and stitched seams
- */
-function makeDogMaterial(look: SculptLook) {
+/** Dog material with the face projection, triplanar fur and accent markings (soft Lambert). */
+function makeDogMaterial() {
   const uniforms = {
     uFace: { value: null as THREE.Texture | null },
     uHasFace: { value: 0 },
@@ -54,7 +48,7 @@ function makeDogMaterial(look: SculptLook) {
     uFurScale: { value: 1.5 },
     uSnap: { value: 0 },
   };
-  const mat = look === 'toon' ? new THREE.MeshToonMaterial({ color: '#ffffff', gradientMap: getToonRamp() }) : new THREE.MeshLambertMaterial({ color: '#ffffff' });
+  const mat = new THREE.MeshLambertMaterial({ color: '#ffffff' });
   mat.onBeforeCompile = (shader) => {
     Object.assign(shader.uniforms, uniforms);
     shader.vertexShader = shader.vertexShader
@@ -124,28 +118,7 @@ if (uHasFace > 0.5) {
   float m = clamp(vFaceW, 0.0, 1.0) * inside * fc.a * (1.0 - smoothstep(0.55, 0.95, r));
   col = mix(fur, feat, m);
 }
-${
-  look === 'plush'
-    ? `// felt: fine fuzzy grain + stitched seams down the back and belly
-{
-  vec3 g = floor(vRestPos * 160.0);
-  float h = fract(sin(dot(g, vec3(12.9898, 78.233, 37.719))) * 43758.5453);
-  col *= 0.9 + 0.16 * h;
-  float onMid = 1.0 - smoothstep(0.003, 0.007, abs(vRestPos.x));
-  float topOrBelly = smoothstep(0.55, 0.8, abs(normalize(vRestN).y));
-  float dash = step(0.45, fract(vRestPos.z * 38.0));
-  col = mix(col, col * 0.55, onMid * topOrBelly * dash);
-}`
-    : ''
-}
 diffuseColor.rgb *= col;`,
-      );
-    if (look === 'plush')
-      shader.fragmentShader = shader.fragmentShader.replace(
-        '#include <opaque_fragment>',
-        `// soft velvet sheen on the silhouette
-outgoingLight += diffuseColor.rgb * 0.35 * pow(1.0 - clamp(dot(normal, normalize(vViewPosition)), 0.0, 1.0), 2.2);
-#include <opaque_fragment>`,
       );
   };
   return { mat, uniforms };
@@ -156,13 +129,12 @@ export function DogSculpt({
   anim = 'idle',
   onTap,
   onPetStart,
-  look = 'sculpt',
   ...props
-}: { dog: DogProfile; anim?: DogAnim; onTap?: () => void; onPetStart?: () => void; look?: SculptLook } & ThreeElements['group']) {
+}: { dog: DogProfile; anim?: DogAnim; onTap?: () => void; onPetStart?: () => void } & ThreeElements['group']) {
   const furTex = useImageTexture(dog.furImg, 1, true);
   const faceTex = useFaceTexture(dog.faceImg);
-  const build = useMemo(() => buildSculptDog(dog, look), [dog, look]);
-  const { mat, uniforms } = useMemo(() => makeDogMaterial(look), [look]);
+  const build = useMemo(() => buildSculptDog(dog), [dog]);
+  const { mat, uniforms } = useMemo(() => makeDogMaterial(), []);
   useEffect(() => () => mat.dispose(), [mat]);
 
   uniforms.uFace.value = faceTex;
@@ -202,8 +174,8 @@ export function DogSculpt({
   useEffect(() => () => rig.mesh.skeleton.dispose(), [rig]);
 
   // body-shaped cloth (collars, bandanas, outfits) skinned to the same skeleton
-  const costumes = useCostumes(build.frame, sculptKey(dog, look), dog.equipped);
-  const clothMat = useClothMaterial(false, look);
+  const costumes = useCostumes(build.frame, sculptKey(dog), dog.equipped);
+  const clothMat = useClothMaterial(false);
   const cloth = useMemo(
     () =>
       costumes.flatMap((c) => c.layers).map((l) => {
@@ -220,20 +192,7 @@ export function DogSculpt({
   );
   useEffect(() => () => cloth.forEach((m) => m.geometry.dispose()), [cloth]);
 
-  // toon: ink outline around the dog and its cloth
-  const outlineMat = useMemo(() => (look === 'toon' ? makeOutlineMaterial() : null), [look]);
-  useEffect(() => () => outlineMat?.dispose(), [outlineMat]);
   const hooded = wearsHood(dog.equipped.body);
-  const outlines = useMemo(() => {
-    if (!outlineMat) return [];
-    return [rig.mesh, ...(hooded ? [] : [rig.ears]), ...cloth].map((src) => {
-      const m = new THREE.SkinnedMesh(src.geometry, outlineMat);
-      m.bind(rig.mesh.skeleton, rig.mesh.bindMatrix);
-      m.frustumCulled = false;
-      m.raycast = () => {};
-      return m;
-    });
-  }, [outlineMat, rig, cloth, hooded]);
 
   const root = useRef<THREE.Group>(null);
   const pose = useRef(newPose());
@@ -358,9 +317,6 @@ export function DogSculpt({
         {/* a hood swallows the ears (they show as bumps on it) */}
         {!hooded && <primitive object={rig.ears} />}
         {cloth.map((m) => (
-          <primitive key={m.uuid} object={m} />
-        ))}
-        {outlines.map((m) => (
           <primitive key={m.uuid} object={m} />
         ))}
       </group>

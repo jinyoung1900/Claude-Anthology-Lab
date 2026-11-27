@@ -299,8 +299,6 @@ const fi: Dict = {
   'create.happy': "Iloinen hyppy",
   'create.model': 'Mallin tyyli',
   'model.sculpt': '🐶 Muovailtu',
-  'model.toon': '🎨 Piirretty',
-  'model.plush': '🧸 Pehmolelu',
   'model.pixel': '👾 Pikseli',
   'create.breedShape': 'Rodun muoto',
   'create.keepsPhoto': ' (kuva säilyy)',

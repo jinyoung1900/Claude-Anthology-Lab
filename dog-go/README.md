@@ -18,7 +18,7 @@
 ## 🐕 What you can do
 
 1. **Make your dog.** Take a photo, drag one box over the face and one over the fur, and Dog-go builds a 3D dog from it. Tune the body length, legs, ears, tail, fluff and markings, or start from a breed (golden retriever, corgi, husky, dachshund, lab).
-2. **Pick a look.** *Sculpted* (soft and round), *Toon* (cel-shaded with an ink outline), *Plush* (a stuffed toy with felt and stitches) or *Pixel* (made of cubes, with a matching blocky owner).
+2. **Pick a look.** *Sculpted* (soft and round) or *Pixel* (made of cubes, with a matching blocky owner).
 3. **Walk.** Real walks use GPS: your route is drawn on a map and flowers bloom along it every 100 m. Virtual walks are for a dog who is away or remembered: they trot beside you on screen and leave pawprints.
 4. **Play.** Tap a ball or frisbee to hold it, then swipe up to throw. The dog waits a moment, runs after it, brings it back in its mouth and drops it at your feet. Rub the dog to pet it, or ask it to walk, sit or jump.
 5. **Dress up.** Hats, glasses, collars, bandanas, scarves, medals, packs, harnesses and outfits (a dino suit, a bee, a frog, a teddy bear, a unicorn and more). Everything is shaped from the dog's own body, so it fits any dog.

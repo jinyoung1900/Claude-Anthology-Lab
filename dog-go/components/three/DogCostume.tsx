@@ -11,7 +11,6 @@ import { TRINKET_MAP } from '@/lib/trinkets';
 import type { Equipped } from '@/lib/types';
 import { buildCostume, SHELL_KINDS, type Costume, type CostumeExtra, type DogFrame, type FrameName } from './costume';
 import type { V3 } from './sculpt/surfaceNets';
-import { getToonRamp } from './toon';
 
 const cache = new Map<string, Costume>();
 
@@ -35,14 +34,8 @@ export function useCostumes(frame: DogFrame | null, shapeKey: string, equipped: 
   }, [frame, shapeKey, idKey]);
 }
 
-export function useClothMaterial(flat: boolean, look: 'sculpt' | 'toon' | 'plush' | 'pixel' = 'sculpt') {
-  const mat = useMemo(
-    () =>
-      look === 'toon'
-        ? new THREE.MeshToonMaterial({ vertexColors: true, gradientMap: getToonRamp() })
-        : new THREE.MeshLambertMaterial({ vertexColors: true, flatShading: flat }),
-    [flat, look],
-  );
+export function useClothMaterial(flat: boolean, _look: 'sculpt' | 'pixel' = 'sculpt') {
+  const mat = useMemo(() => new THREE.MeshLambertMaterial({ vertexColors: true, flatShading: flat }), [flat]);
   useEffect(() => () => mat.dispose(), [mat]);
   return mat;
 }

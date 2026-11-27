@@ -34,8 +34,7 @@ const RUN = 2.1; // dog speed (units / s)
 /** mouth position in the dog's own frame */
 function mouthOf(dog: DogProfile): THREE.Vector3 {
   if (dog.model === 'pixel') return new THREE.Vector3(0, 0.42, 0.5);
-  const look = dog.model === 'toon' || dog.model === 'plush' ? dog.model : 'sculpt';
-  const b = buildSculptDog(dog, look);
+  const b = buildSculptDog(dog);
   return new THREE.Vector3(0, b.headC[1] - b.R * 0.5, b.headC[2] + b.R * 1.25);
 }
 

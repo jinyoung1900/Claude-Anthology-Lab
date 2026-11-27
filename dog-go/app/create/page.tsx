@@ -236,7 +236,7 @@ function Creator() {
             <div>
               <span className="label">{t('create.model')}</span>
               <div className="mt-1 grid grid-cols-2 gap-1" role="radiogroup" aria-label={t('create.model')}>
-                {(['sculpt', 'toon', 'plush', 'pixel'] as DogModel[]).map((m) => (
+                {(['sculpt', 'pixel'] as DogModel[]).map((m) => (
                   <button key={m} role="radio" aria-checked={(dog.model ?? 'sculpt') === m} onClick={() => setDog({ ...dog, model: m })} className={`min-h-11 rounded-xl text-sm font-bold ${(dog.model ?? 'sculpt') === m ? 'bg-moss text-white' : 'bg-cream'}`}>
                     {t(`model.${m}` as TKey)}
                   </button>

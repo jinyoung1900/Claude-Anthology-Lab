@@ -152,6 +152,6 @@ export function normalizeDog(d: DogProfile): DogProfile {
     markings: { chest: false, socks: false, tailTip: false },
     ...d,
     // retired styles ('round', 'retro') move to the sculpted dog
-    model: d.model && (['sculpt', 'toon', 'plush', 'pixel'] as string[]).includes(d.model) ? d.model : 'sculpt',
+    model: d.model === 'pixel' ? 'pixel' : 'sculpt', // Toon / Plush were removed: those dogs become Sculpted
   };
 }

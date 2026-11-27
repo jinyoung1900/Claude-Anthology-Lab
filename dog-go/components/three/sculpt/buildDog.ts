@@ -113,14 +113,10 @@ const smooth = (e0: number, e1: number, x: number) => {
 const cache = new Map<string, SculptBuild>();
 
 /** body-shape flavour of the one-piece dog */
-export type SculptShape = 'sculpt' | 'toon' | 'plush';
+export type SculptShape = 'sculpt';
 const SHAPE: Record<SculptShape, { head: number; body: number; leg: number; legW: number; snout: number; boxy?: boolean }> = {
   // default: round body & legs, softly squared muzzle and ears (hats sit above the ears)
   sculpt: { head: 0.88, body: 1, leg: 1, legW: 1.05, snout: 1, boxy: true },
-  // cartoon: big expressive head, slightly slimmer limbs
-  toon: { head: 1.16, body: 0.97, leg: 0.95, legW: 0.92, snout: 0.9 },
-  // stuffed toy: big round head, chubby body, short stubby legs, short muzzle
-  plush: { head: 1.22, body: 1.14, leg: 0.68, legW: 1.25, snout: 0.7 },
 };
 
 export function sculptKey(dog: DogProfile, shape: SculptShape = 'sculpt') {

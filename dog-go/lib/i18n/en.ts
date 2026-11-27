@@ -304,8 +304,6 @@ const en = {
   'create.happy': "Happy jump",
   'create.model': 'Model style',
   'model.sculpt': '🐶 Sculpted',
-  'model.toon': '🎨 Toon',
-  'model.plush': '🧸 Plush',
   'model.pixel': '👾 Pixel',
   'create.breedShape': 'Breed shape',
   'create.keepsPhoto': ' (keeps your photo)',

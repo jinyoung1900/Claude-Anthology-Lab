@@ -44,7 +44,7 @@ export interface DogProfile {
   /** Second color for chest / socks / tail tip */
   accentColor?: string;
   markings?: DogMarkings;
-  /** 'sculpt' (default), 'toon', 'plush' (all the one-piece skinned dog) or 'pixel' (voxel) */
+  /** 'sculpt' (default, the one-piece skinned dog) or 'pixel' (voxel) */
   model?: DogModel;
 }
 
@@ -134,7 +134,7 @@ export interface Settings {
 }
 
 export type Lang = 'en' | 'ko' | 'fi';
-export type DogModel = 'sculpt' | 'toon' | 'plush' | 'pixel';
+export type DogModel = 'sculpt' | 'pixel';
 export type Feeling = 'joy' | 'love' | 'calm' | 'meh' | 'sad' | 'tired';
 
 export interface AppData {

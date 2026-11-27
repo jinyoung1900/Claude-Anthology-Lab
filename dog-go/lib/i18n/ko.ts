@@ -299,8 +299,6 @@ const ko: Dict = {
   'create.happy': "신나게 점프",
   'create.model': '모델 스타일',
   'model.sculpt': '🐶 조각 강아지',
-  'model.toon': '🎨 만화',
-  'model.plush': '🧸 봉제 인형',
   'model.pixel': '👾 픽셀',
   'create.breedShape': '견종 체형',
   'create.keepsPhoto': ' (사진 유지)',
