@@ -32,7 +32,7 @@ function makeStarterDog(): DogProfile {
     earStyle: 'floppy',
     proportions: { ...DEFAULT_PROPORTIONS },
     memorial: false,
-    equipped: { neck: 'bandana-red' },
+    equipped: {},
     createdAt: Date.now(),
   };
   return applyBreed(blank, 'golden', true);
@@ -45,7 +45,7 @@ function initialData(): AppData {
     activeDogId: dog.id,
     human: DEFAULT_HUMAN,
     walks: [],
-    inventory: { 'bandana-red': 1 },
+    inventory: { 'collar-blue': 1 }, // unlocked, not worn
     spins: 1, // a welcome spin
     treats: 0,
     claimed: [],

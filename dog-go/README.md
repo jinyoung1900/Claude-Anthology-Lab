@@ -10,7 +10,7 @@
 <p align="center">
   <img src="media/autumn.jpg" alt="Home screen: a cute 3D golden retriever with a blue collar stands in an autumn park with orange trees and falling leaves" width="300">
   &nbsp;
-  <img src="media/fetch.jpg" alt="Fetch on the beach: a tennis ball is held in front of the dog with the hint 'Swipe up to throw!'" width="300">
+  <img src="media/walk.jpg" alt="A walk on the map: the route is drawn as a pink line through a park, a sunflower marks the first 100 m, and the owner and dog walk together in the corner" width="300">
 </p>
 
 ---
