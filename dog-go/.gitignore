@@ -1,0 +1,12 @@
+node_modules
+.next
+android/app/build
+android/build
+android/.gradle
+*.tsbuildinfo
+android/local.properties
+android/app/src/main/assets/public
+android/capacitor-cordova-android-plugins
+*.keystore
+.env*
+share

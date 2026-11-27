@@ -13,6 +13,7 @@
 |---|---|---|---|
 | 🌙 | **[Luna's Magic Lab](lunas-magic-lab/)** | A VR word-crafting puzzle for kids: look around, reveal hidden shapes, teleport, and mix them into new words (sun + star = rocket). English · 한국어 · Suomi (plus Español). Controller-free on a phone in a Google Cardboard viewer. | [▶ Play](https://jinyoung1900.github.io/Claude-Anthology-Lab/lunas-magic-lab/) · [Code & video](lunas-magic-lab/) |
 | 🌧️ | **[Idle Raindrop](idle-raindrop/)** | A calm pixel-art idle game for Android. You are a small cloud: rain on a dead valley until grass, lakes and a village come back, then evaporate and drift to the next valley. All art drawn in code, real cloud types and weather lore. | [▶ Play](https://jinyoung1900.github.io/Claude-Anthology-Lab/idle-raindrop/) · [APK](https://github.com/jinyoung1900/Claude-Anthology-Lab/releases/tag/idle-raindrop-v1.0) · [Code](idle-raindrop/) |
+| 🐾 | **[Dog-go](dog-go/)** | A cozy dog-walking app. Turn a photo of your dog into a soft 3D dog, walk together with GPS (or virtually, for a dog who is far away or has passed), throw a ball or frisbee for them, and dress them up. English · 한국어 · Suomi. | [▶ Try it](https://jinyoung1900.github.io/Claude-Anthology-Lab/dog-go/) · [APK](https://github.com/jinyoung1900/Claude-Anthology-Lab/releases/tag/dog-go-v0.1) · [Code](dog-go/) |
 
 *More pieces coming.*
 

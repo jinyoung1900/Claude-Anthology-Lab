@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#6BA368"/><circle cx="512" cy="470" r="400" fill="#7DB57A"/>
+  <g transform="translate(-50 20)">
+  <!-- ground shadow + speed lines -->
+  <ellipse cx="540" cy="680" rx="250" ry="24" fill="#000" opacity="0.12"/>
+  <polygon points="130,420 230,420 220,442 120,442" fill="#fff" opacity="0.55"/>
+  <polygon points="100,490 205,490 195,512 90,512" fill="#fff" opacity="0.4"/>
+  <polygon points="140,560 220,560 210,582 130,582" fill="#fff" opacity="0.3"/>
+  <!-- far legs -->
+  <polygon points="580,560 630,555 655,640 608,650" fill="#9A5E22"/>
+  <polygon points="395,575 448,585 405,655 358,645" fill="#9A5E22"/>
+  <!-- little wagging tail -->
+  <polygon points="322,450 262,368 238,380 292,470" fill="#D99A45"/>
+  <polygon points="322,450 262,368 280,440" fill="#B87430"/>
+  <!-- round chonky body -->
+  <polygon points="300,480 330,410 420,372 540,366 640,398 684,480 652,572 540,612 410,612 320,566" fill="#D99A45"/>
+  <polygon points="330,410 420,372 540,366 640,398 490,470" fill="#E6AA58"/>
+  <polygon points="300,480 330,410 490,470 320,566" fill="#CF8E3C"/>
+  <polygon points="320,566 490,470 652,572 540,612 410,612" fill="#B87430"/>
+  <polygon points="644,430 684,480 660,560 618,520" fill="#F2D3A0"/>
+  <!-- stubby near legs -->
+  <polygon points="612,540 664,526 728,600 690,628" fill="#D99A45"/>
+  <polygon points="664,526 728,600 690,575" fill="#CF8E3C"/>
+  <polygon points="688,612 740,598 750,630 698,642" fill="#F2D3A0"/>
+  <polygon points="348,536 402,558 332,636 288,616" fill="#D99A45"/>
+  <polygon points="348,536 288,616 318,590" fill="#CF8E3C"/>
+  <polygon points="276,606 326,626 312,656 264,644" fill="#F2D3A0"/>
+  <!-- bandana -->
+  <polygon points="626,410 724,446 686,520" fill="#D9453B"/>
+  <polygon points="676,428 724,446 686,520" fill="#B8352D"/>
+  <!-- big round head -->
+  <polygon points="608,330 640,250 720,218 802,240 846,302 850,382 804,442 720,462 640,430" fill="#D99A45"/>
+  <polygon points="640,250 720,218 802,240 724,318" fill="#E6AA58"/>
+  <polygon points="608,330 640,250 724,318 640,430" fill="#CF8E3C"/>
+  <polygon points="802,240 846,302 850,382 724,318" fill="#E0A250"/>
+  <!-- short muzzle + nose -->
+  <polygon points="780,358 862,350 894,386 872,424 800,432" fill="#F2D3A0"/>
+  <polygon points="780,358 862,350 830,392" fill="#F7E0B8"/>
+  <polygon points="864,348 902,356 898,386 868,382" fill="#1d1410"/>
+  <polygon points="872,354 886,356 884,366 872,364" fill="#5a4a44"/>
+  <!-- big sparkly eye + blush -->
+  <polygon points="742,296 788,290 794,344 748,350" fill="#2a1a10"/>
+  <polygon points="752,302 770,300 771,318 753,320" fill="#fff"/>
+  <polygon points="776,326 784,325 785,333 777,334" fill="#fff"/>
+  <ellipse cx="752" cy="388" rx="24" ry="13" fill="#F08A9A" opacity="0.7"/>
+  <!-- tongue -->
+  <polygon points="818,424 848,420 846,458 826,462" fill="#E86A7E"/>
+  <!-- floppy ear -->
+  <polygon points="652,246 704,236 668,366 618,380 626,300" fill="#B87430"/>
+  <polygon points="652,246 626,300 618,380" fill="#9A5E22"/>
+</g>
+</svg>
